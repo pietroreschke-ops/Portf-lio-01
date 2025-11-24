@@ -7,7 +7,358 @@
 </head>
 <body>
 
-    hello world
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio - [Seu Nome]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --cor-primaria: #007bff; /* Azul Vibrante */
+            --cor-secundaria: #343a40; /* Preto/Cinza Escuro para Fundo */
+            --cor-fundo-claro: #f8f9fa; /* Fundo Leve */
+            --cor-texto: #212529; /* Preto para Textos */
+            --cor-clara: #ffffff; /* Branco */
+        }
+
+        /* Estilos Gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cor-fundo-claro);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Cabeçalho e Menu (Menu Inicial) */
+        .header {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-clara);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav ul li {
+            margin-left: 25px;
+        }
+
+        .nav ul li a {
+            color: var(--cor-clara);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav ul li a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* Espaço para Imagem (Canto Superior Direito) */
+        .profile-image-container {
+            /* Movido para dentro do header-content para posicionamento fácil */
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 50px; /* Tamanho pequeno */
+            height: 50px;
+            border-radius: 50%; /* Arredondado */
+            background-color: var(--cor-clara);
+            border: 3px solid var(--cor-primaria); /* Borda azul para destaque */
+            object-fit: cover;
+            /* Placeholder para a imagem: você pode remover o background-image */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ccc"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Seções do Corpo do Site */
+        section {
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: var(--cor-primaria);
+            margin-bottom: 40px;
+        }
+
+        /* Seção Sobre Mim/Introdução */
+        #sobre {
+            background-color: var(--cor-clara);
+        }
+
+        #sobre p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            color: var(--cor-texto);
+        }
+
+        /* Seção Projetos */
+        #projetos {
+            background-color: var(--cor-fundo-claro);
+        }
+
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .projeto-card {
+            background-color: var(--cor-clara);
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .projeto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .projeto-imagem {
+            width: 100%;
+            height: 200px;
+            background-color: #ccc; /* Cor de placeholder para a imagem */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: var(--cor-secundaria);
+            text-align: center;
+        }
+
+        .projeto-conteudo {
+            padding: 20px;
+        }
+
+        .projeto-conteudo h3 {
+            color: var(--cor-secundaria);
+            margin-top: 0;
+        }
+
+        .projeto-conteudo p {
+            font-size: 0.95em;
+            color: var(--cor-texto);
+        }
+
+        /* Rodapé para Redes Sociais */
+        .footer {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-clara);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--cor-clara);
+            font-size: 1.8em;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--cor-primaria);
+        }
+
+        .footer p {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+
+            .nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            .nav ul li {
+                margin: 0 10px;
+            }
+            
+            .profile-image-container {
+                position: absolute; /* Ajusta o posicionamento no mobile */
+                top: 15px;
+                right: 15px;
+            }
+
+            .projetos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#inicio">Meu Portfólio</a>
+            </div>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="#sobre">Sobre Mim</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="profile-image-container">
+                <img src="URL_DA_SUA_IMAGEM_AQUI" alt="Sua Foto de Perfil" class="profile-image">
+                </div>
+        </div>
+    </header>
+
+    <section id="sobre" class="container">
+        <h2>Sobre Mim</h2>
+        <p>
+            [PLACEHOLDER] Olá! Eu sou [Seu Nome], um desenvolvedor/designer focado em criar soluções digitais inovadoras. Tenho paixão por [Área de Foco] e busco sempre a excelência em cada projeto. Este portfólio é uma amostra do meu trabalho e das minhas habilidades técnicas.
+        </p>
+    </section>
+
+    <section id="projetos" class="container">
+        <h2>Meus Projetos</h2>
+        <div class="projetos-grid">
+            
+            <div class="projeto-card">
+                <div class="projeto-imagem">
+                    [Espaço para Imagem do Projeto 1]
+                </div>
+                <div class="projeto-conteudo">
+                    <h3>Projeto Alpha - Website Institucional</h3>
+                    <p>[PLACEHOLDER] Este projeto envolveu o desenvolvimento de um site responsivo usando HTML, CSS (SASS) e JavaScript. O foco foi na otimização de performance e experiência do usuário.</p>
+                    <a href="#" target="_blank" style="color: var(--cor-primaria); text-decoration: none; font-weight: bold;">Ver Projeto &rarr;</a>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <div class="projeto-imagem">
+                    [Espaço para Imagem do Projeto 2]
+                </div>
+                <div class="projeto-conteudo">
+                    <h3>Projeto Beta - Aplicativo Mobile</h3>
+                    <p>[PLACEHOLDER] Um aplicativo móvel desenvolvido em React Native. Principais recursos: autenticação de usuários, integração de API e interface de usuário intuitiva.</p>
+                    <a href="#" target="_blank" style="color: var(--cor-primaria); text-decoration: none; font-weight: bold;">Ver Projeto &rarr;</a>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <div class="projeto-imagem">
+                    [Espaço para Imagem do Projeto 3]
+                </div>
+                <div class="projeto-conteudo">
+                    <h3>Projeto Gamma - Análise de Dados</h3>
+                    <p>[PLACEHOLDER] Um estudo de caso de análise de dados utilizando Python (Pandas/Matplotlib). O objetivo era identificar padrões de [Tópico] e gerar relatórios visuais.</p>
+                    <a href="#" target="_blank" style="color: var(--cor-primaria); text-decoration: none; font-weight: bold;">Ver Projeto &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contato" class="footer">
+        <div class="container">
+            <h3>Vamos Conversar!</h3>
+            <p>Entre em contato ou me siga nas redes sociais para saber mais sobre meu trabalho.</p>
+
+            <ul class="social-links">
+                <li><a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
+                <li><a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" target="_blank" title="E-mail"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+
+            <p>&copy; 2025 [Seu Nome]. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 </body>
